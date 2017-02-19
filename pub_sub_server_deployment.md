@@ -4,27 +4,31 @@ Machine prerequisites:
 - Git (For Ubuntu: https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-12-04)
 - Node 0.10.26 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
 - Node Packaged Modules (npm) 1.4.3 or above
+- NVM version 0.30.1 or above
 
 Kaltura platform required changes:
 =======================
-- Please note that push-server needs version Jupiter-10.14.0 at least for it to run. So if you are behind please update you Kaltura installation before continuing to any of the next steps.
+- Please note that push-server needs version Lynx-12.11.0 at least for it to run. So if you are behind please update you Kaltura installation before continuing to any of the next steps.
 - update local.ini file and set the push_server_host value to point to your push server hostname.
 - make sure local.ini file and push-server's config.ini file contain the same configuration for both RabbitMQ and tokens (see below).
 
 Code:
 =======================
-Clone https://github.com/kaltura/push-server to /opt/kaltura/push-server 
+Clone https://github.com/kaltura/pub-sub-server to /opt/kaltura/pub-sub-server/master
 
 Install:
 =======================
-- Navigate to /opt/kaltura/push-server 
+- Navigate to /opt/kaltura/pub-sub-server/master
 - npm install
-- ln -s /opt/kaltura/push-server/bin/push-server.sh /etc/init.d/kaltura_push
+- ln -s /opt/kaltura/pub-sub-server/master /opt/kaltura/pub-sub-server/latest
+- ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
+- ln -s /opt/kaltura/pub-sub-server/latest/bin/upgradePubSubServer.sh /etc/init.d/kaltura_upgrade_push_server
+
 
 Configure:
 =======================
-- Create a log directory, e.g. mkdir /opt/kaltura/log
-- cp /opt/kaltura/push-server/config/config.ini.template /opt/kaltura/push-server/config/config.ini
+- Create a log directory, e.g. mkdir /opt/kaltura/log/pub-sub-server
+- cp -p /opt/kaltura/pub-sub-server/latest/config/config.ini.template /opt/kaltura/pub-sub-server/latest/config/config.ini
 
 Replace tokens in config.ini file:
 =======================
