@@ -19,6 +19,10 @@ Clone https://github.com/kaltura/pub-sub-server to /opt/kaltura/pub-sub-server/m
 Install:
 =======================
 - Navigate to /opt/kaltura/pub-sub-server/master
+
+Install:
+=======================
+- Navigate to /opt/kaltura/pub-sub-server
 - npm install
 - ln -s /opt/kaltura/pub-sub-server/master /opt/kaltura/pub-sub-server/latest
 - ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
@@ -33,9 +37,10 @@ Configure:
 Replace tokens in config.ini file:
 =======================
 - @LOG_DIR@ - Your logs directory from previous step (e.g. /opt/kaltura/log )
+- @QUEUE_NAME@ - unique queueName for specific pub-sub-server as defined in rabbitMQ
 - @RABBIT_MQ_USERNAME@ - Username of admin access to RabbitMQ management console (should be the same as configured in rabbit_mq.ini file)
 - @RABBIT_MQ_PASSWORD@ - Password of admin access to RabbitMQ management console (should be the same as configured in rabbit_mq.ini file)
-- @RABBIT_MQ_SERVER@ - Hostname in which rabbitmq is installed (should be the same as configured in rabbit_mq.ini file)
+- @RABBIT_MQ_SERVER_HOSTS@ - comma separated hosts - rabbit cluster url and port – e.g. http://ny-rabbit.kaltura.com:5672 
 - @SOCKET_IO_PORT@ - Required port for incoming requests to be given (e.g., 8081)
 - @TOKEN_KEY@ - The same secret value configured in local.ini file (push_server_secret)
 - @TOKEN_IV@ - The same iv value configured in local.ini file (push_server_secret_iv)
