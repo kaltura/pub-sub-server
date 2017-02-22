@@ -1,6 +1,5 @@
 Machine prerequisites:
 =======================
-
 - Git (For Ubuntu: https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-12-04)
 - Node 0.10.26 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
 - Node Packaged Modules (npm) 1.4.3 or above
@@ -12,18 +11,18 @@ Kaltura platform required changes:
 - update local.ini file and set the push_server_host value to point to your push server hostname.
 - make sure local.ini file and push-server's config.ini file contain the same configuration for both RabbitMQ and tokens (see below).
 
-Code:
+Repo:
 =======================
-Clone https://github.com/kaltura/pub-sub-server to /opt/kaltura/pub-sub-server/master
+https://github.com/kaltura/pub-sub-server
 
 Install:
 =======================
+- Clone https://github.com/kaltura/pub-sub-server to /opt/kaltura/pub-sub-server/master
 - Navigate to /opt/kaltura/pub-sub-server/master
 - npm install
 - ln -s /opt/kaltura/pub-sub-server/master /opt/kaltura/pub-sub-server/latest
 - ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
-- ln -s /opt/kaltura/pub-sub-server/latest/bin/upgradePubSubServer.sh /etc/init.d/kaltura_upgrade_push_server
-
+- ln -s /opt/kaltura/pub-sub-server/latest/bin/upgrade-push-server.sh /etc/init.d/kaltura_upgrade_push_server
 
 Configure:
 =======================
@@ -43,3 +42,9 @@ Replace tokens in config.ini file:
 Execution:
 =======================
 /etc/init.d/kaltura_push start
+
+Upgrade:
+=======================
+- run /etc/init.d/kaltura_upgrade_push_server @RELEASE_ID@
+- The release id should ber provided without the 'v' prefix. For example to upgrade to v1.0 you need to execute: /etc/init.d/kaltura_upgrade_push_server 1.0
+- The upgrade will sync all the configuration files and will restart the service.
