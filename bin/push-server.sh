@@ -23,9 +23,9 @@ echo `date`
 ### END INIT INFO
  
 NAME="push_server"
-NODE_PATH="/opt/kaltura/push-server/node_modules"
-APPLICATION_PATH="/opt/kaltura/push-server/main.js"
-PIDFILE="/opt/kaltura/push-server/config/push-server.pid"
+NODE_PATH="/opt/kaltura/pub-sub-server/latest/node_modules"
+APPLICATION_PATH="/opt/kaltura/pub-server-server/latest/main.js"
+PIDFILE="/opt/kaltura/pub-sub-server/latest/config/push-server.pid"
 LOGFILE="/opt/kaltura/log/push-server.log"
 MIN_UPTIME="5000"
 SPIN_SLEEP_TIME="2000"
