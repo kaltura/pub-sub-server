@@ -36,7 +36,7 @@ if [ ! -d "$1" ] ; then
         
         ##### Link new version to latest and sync execution scripts #####
         ln -s /opt/kaltura/pub-sub-server/$1 /opt/kaltura/pub-sub-server/latest
-        ln -s /opt/kaltura/pub-sub-server/latest/bin/upgradePubSubServer.sh /etc/init.d/kaltura_upgrade_push_server
+        ln -s /opt/kaltura/pub-sub-server/latest/bin/upgrade-push-server.sh /etc/init.d/kaltura_upgrade_push_server
         ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
      
         ##### Delete downloaded zipped source files ##### 
