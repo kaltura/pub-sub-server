@@ -31,7 +31,7 @@ if [ ! -d "$1" ] ; then
         
         ##### Unlink previous version ##### 
         unlink /opt/kaltura/pub-sub-server/latest
-        unlink /etc/init.d/kaltura_upgradePubSubServer
+        unlink /etc/init.d/kaltura_upgrade_push_server
         unlink /etc/init.d/kaltura_push
         
         ##### Link new version to latest and sync execution scripts #####
