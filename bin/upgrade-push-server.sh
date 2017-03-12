@@ -5,19 +5,19 @@
 
 ##### Navigate to push server directory #####
 cd /opt/kaltura/pub-sub-server/
-echo updating pub-sub-server to version v.$1
+echo updating pub-sub-server to version $1
 
 ##### Check if requested version was already pulled to the machine #####
 if [ ! -d "$1" ] ; then
     ##### Check if initial setup was already made following the deployment instructions #####
     if [ ! -L "$latest" ] ; then
         ##### Download the requested version release from git ##### 
-        echo Try to download  https://github.com/kaltura/pub-sub-server/archive/v$1.tar.gz
-        wget https://github.com/kaltura/pub-sub-server/archive/v$1.tar.gz
+        echo Try to download  https://github.com/kaltura/pub-sub-server/archive/$1.tar.gz
+        wget https://github.com/kaltura/pub-sub-server/archive/$1.tar.gz
         
         ##### Unzip the source code #####
-        echo try to unzip v$1.tar.gz
-        tar -xvzf v$1.tar.gz
+        echo try to unzip $1.tar.gz
+        tar -xvzf $1.tar.gz
         mv pub-sub-server-$1 $1
 
         ##### Navigate to the downloaded version dir and install project pre-requisites #####
