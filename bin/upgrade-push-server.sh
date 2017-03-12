@@ -40,7 +40,7 @@ if [ ! -d "$1" ] ; then
         ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
      
         ##### Delete downloaded zipped source files ##### 
-        rm -rf /opt/kaltura/pub-sub-server/v$1.tar.gz
+        rm -rf /opt/kaltura/pub-sub-server/$1.tar.gz
     else
         echo "No previous version found"
     fi
