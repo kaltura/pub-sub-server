@@ -2,6 +2,7 @@
 	"name": "kaltura-push-server",
 	"description" : "Push server installation",
 	"version": "0.0.1",
+	"engines" : { "node" : ">=7.6.0" },
 	"dependencies": {
 		"amqp": ">=0.2.6",
 		"bluebird": ">=3.4.1",
