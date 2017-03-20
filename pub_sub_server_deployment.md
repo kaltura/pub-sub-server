@@ -40,6 +40,10 @@ Replace tokens in config.ini file:
 - @TOKEN_IV@ - The same iv value configured in local.ini file (push_server_secret_iv)
 - @QUEUE_NAME@ - unique queueName as defined in rabbitMQ
 
+Modify tokens bin/push-server.sh file:
+=======================
+make sure that PUB_SUB_PATH and LOG_PATH are pointing to the correct paths
+
 Execution:
 =======================
 /etc/init.d/kaltura_push start
@@ -49,3 +53,4 @@ Upgrade:
 - run /etc/init.d/kaltura_upgrade_push_server @RELEASE_ID@
 - Example to upgrade to 1.0 you need to execute: /etc/init.d/kaltura_upgrade_push_server 1.0
 - The upgrade will sync all the configuration files and will restart the service.
+- Make sure that tokens in bin/push-server.sh file (PUB_SUB_PATH and LOG_PATH) are pointing to the correct paths
