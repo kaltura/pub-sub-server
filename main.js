@@ -16,6 +16,11 @@ KalturaMainProcess.prototype.start = function () {
 	KalturaLogger.log('Push-Server ' + version + ' started');
 	
 	var conn = new ConnectionManager();
+	process.on('SIGUSR1', function() {
+                KalturaLogger.log('Got SIGUSR1. Invoke log rotate notification.');
+                KalturaLogger.notifyLogsRotate();
+        });
+
 };
 
 module.exports.KalturaMainProcess = KalturaMainProcess;
