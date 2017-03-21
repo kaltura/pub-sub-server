@@ -23,10 +23,10 @@ echo `date`
 NAME="push_server"
 PUB_SUB_PATH="/opt/kaltura/pub-sub-server/latest"
 LOG_PATH="/opt/kaltura/log"
-NODE_PATH= $PUB_SUB_PATH"/node_modules"
-APPLICATION_PATH= $PUB_SUB_PATH"/main.js"
-PIDFILE= $PUB_SUB_PATH"/config/push-server.pid"
-LOGFILE= $LOG_PATH"/push-server.log"
+NODE_PATH=$PUB_SUB_PATH"/node_modules"
+APPLICATION_PATH=$PUB_SUB_PATH"/main.js"
+PIDFILE=$PUB_SUB_PATH"/config/push-server.pid"
+LOGFILE=$LOG_PATH"/push-server.log"
 MIN_UPTIME="5000"
 SPIN_SLEEP_TIME="2000"
  
@@ -46,7 +46,7 @@ start() {
 }
  
 stop() {
-    if [ -f $PIDFILE ]; then
+    if status; then
         echo "Shutting down $NAME"
         # Tell Forever to stop the process.
         forever stop $APPLICATION_PATH 2>&1 > /dev/null
@@ -57,6 +57,7 @@ stop() {
         echo "$NAME is not running."
         RETVAL=0
     fi
+	return $RETVAL
 }
  
 restart() {
@@ -73,6 +74,7 @@ status() {
         echo "$NAME is not running."
         RETVAL=3
     fi
+	return $RETVAL
 }
 
 logRotated() {
@@ -92,9 +94,11 @@ case "$1" in
         ;;
     stop)
         stop
+	exit $?
         ;;
     status)
         status
+	exit $?
         ;;
     restart)
         restart
