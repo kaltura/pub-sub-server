@@ -1,7 +1,7 @@
 Machine prerequisites:
 =======================
 - Git (For Ubuntu: https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-12-04)
-- Node 0.10.26 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
+- Node 7.6.0 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
 - Node Packaged Modules (npm) 1.4.3 or above
 - NVM version 0.30.1 or above
 
@@ -34,10 +34,15 @@ Replace tokens in config.ini file:
 - @LOG_DIR@ - Your logs directory from previous step (e.g. /opt/kaltura/log )
 - @RABBIT_MQ_USERNAME@ - Username of admin access to RabbitMQ management console (should be the same as configured in rabbit_mq.ini file)
 - @RABBIT_MQ_PASSWORD@ - Password of admin access to RabbitMQ management console (should be the same as configured in rabbit_mq.ini file)
-- @RABBIT_MQ_SERVER@ - Hostname in which rabbitmq is installed (should be the same as configured in rabbit_mq.ini file)
+- @RABBIT_MQ_SERVER_HOSTS@ - rabbit cluster url and port – e.g. http://ny-rabbit.kaltura.com:5672 
 - @SOCKET_IO_PORT@ - Required port for incoming requests to be given (e.g., 8081)
 - @TOKEN_KEY@ - The same secret value configured in local.ini file (push_server_secret)
 - @TOKEN_IV@ - The same iv value configured in local.ini file (push_server_secret_iv)
+- @QUEUE_NAME@ - unique queueName as defined in rabbitMQ
+
+Modify tokens bin/push-server.sh file:
+=======================
+make sure that PUB_SUB_PATH and LOG_PATH are pointing to the correct paths
 
 Execution:
 =======================
@@ -46,5 +51,6 @@ Execution:
 Upgrade:
 =======================
 - run /etc/init.d/kaltura_upgrade_push_server @RELEASE_ID@
-- The release id should ber provided without the 'v' prefix. For example to upgrade to v1.0 you need to execute: /etc/init.d/kaltura_upgrade_push_server 1.0
+- Example to upgrade to 1.0 you need to execute: /etc/init.d/kaltura_upgrade_push_server 1.0
 - The upgrade will sync all the configuration files and will restart the service.
+- Make sure that tokens in bin/push-server.sh file (PUB_SUB_PATH and LOG_PATH) are pointing to the correct paths

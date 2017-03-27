@@ -12,21 +12,21 @@ echo `date`
 # description: Kaltura push-server
 
 ### BEGIN INIT INFO
-# Provides:          kaltura-batch
 # Required-Start:    $local_fs $remote_fs $network
 # Required-Stop:     $local_fs $remote_fs $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# X-Interactive:     true
 # Short-Description: Start/stop Kaltura push-server
 # Description:       Control the Kaltura push-server.
 ### END INIT INFO
  
 NAME="push_server"
-NODE_PATH="/opt/kaltura/pub-sub-server/latest/node_modules"
-APPLICATION_PATH="/opt/kaltura/pub-sub-server/latest/main.js"
-PIDFILE="/opt/kaltura/pub-sub-server/latest/config/push-server.pid"
-LOGFILE="/opt/kaltura/log/push-server.log"
+PUB_SUB_PATH="/opt/kaltura/pub-sub-server/latest"
+LOG_PATH="/opt/kaltura/log"
+NODE_PATH=$PUB_SUB_PATH"/node_modules"
+APPLICATION_PATH=$PUB_SUB_PATH"/main.js"
+PIDFILE=$PUB_SUB_PATH"/config/push-server.pid"
+LOGFILE=$LOG_PATH"/push-server.log"
 MIN_UPTIME="5000"
 SPIN_SLEEP_TIME="2000"
  
@@ -46,7 +46,7 @@ start() {
 }
  
 stop() {
-    if [ -f $PIDFILE ]; then
+    if status; then
         echo "Shutting down $NAME"
         # Tell Forever to stop the process.
         forever stop $APPLICATION_PATH 2>&1 > /dev/null
@@ -57,6 +57,7 @@ stop() {
         echo "$NAME is not running."
         RETVAL=0
     fi
+	return $RETVAL
 }
  
 restart() {
@@ -73,6 +74,7 @@ status() {
         echo "$NAME is not running."
         RETVAL=3
     fi
+	return $RETVAL
 }
 
 logRotated() {
@@ -92,9 +94,11 @@ case "$1" in
         ;;
     stop)
         stop
+	exit $?
         ;;
     status)
         status
+	exit $?
         ;;
     restart)
         restart
