@@ -28,6 +28,8 @@ if [ ! -d "$1" ] ; then
         
         ##### Copy config file from previous latest dir to the current version being installed ##### 
         cp -p /opt/kaltura/pub-sub-server/latest/config/config.ini /opt/kaltura/pub-sub-server/$1/config/config.ini
+        ##### Copy sh file from previous latest dir to the current version being installed ##### 
+        cp -p /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /opt/kaltura/pub-sub-server/$1/bin/push-server.sh
         
         ##### Unlink previous version ##### 
         unlink /opt/kaltura/pub-sub-server/latest
