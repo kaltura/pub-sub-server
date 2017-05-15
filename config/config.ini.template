@@ -6,7 +6,7 @@ logName = kaltura_push.log
 errorLogName = kaltura_push_error.log
 
 [server]
-version = v1.0
+version = v1.0.0
 
 [queue]
 ; Comma-separated list of queue managers
