@@ -114,7 +114,7 @@ case "$1" in
     restart)
         restart
         ;;
-        logRotated)
+    logRotated)
         logRotated
         ;;
 
