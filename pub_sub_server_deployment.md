@@ -11,10 +11,6 @@ Kaltura platform required changes:
 - update local.ini file and set the push_server_host value to point to your push server hostname.
 - make sure local.ini file and push-server's config.ini file contain the same configuration for both RabbitMQ and tokens (see below).
 
-Repo:
-=======================
-https://github.com/kaltura/pub-sub-server
-
 Install:
 =======================
 - Clone https://github.com/kaltura/pub-sub-server to /opt/kaltura/pub-sub-server/master
