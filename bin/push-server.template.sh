@@ -18,11 +18,11 @@
 # Description:       Control the Kaltura push-server.
 ### END INIT INFO
  
-NAME="push_server"
+NAME="Kaltura Push Server"
 PUB_SUB_PATH="@PUB_SUB_PREFIX@"
 LOG_PATH="@LOG_DIR@"
 NODE_PATH=$PUB_SUB_PATH"/node_modules"
-APPLICATION_PATH=$PUB_SUB_PATH"/main.js"
+APPLICATION_PATH=`realpath $PUB_SUB_PATH"/main.js"`
 PIDFILE=$PUB_SUB_PATH"/config/push-server.pid"
 LOGFILE=$LOG_PATH"/push-server.log"
 MIN_UPTIME="5000"
@@ -114,7 +114,7 @@ case "$1" in
     restart)
         restart
         ;;
- 	logRotated)
+        logRotated)
         logRotated
         ;;
 
