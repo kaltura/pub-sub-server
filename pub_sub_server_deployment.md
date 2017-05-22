@@ -1,7 +1,7 @@
 Machine prerequisites:
 =======================
 - Git (For Ubuntu: https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-12-04)
-- Node 7.6.0 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
+- Node 6.2.0 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
 - Node Packaged Modules (npm) 1.4.3 or above
 - NVM version 0.30.1 or above
 
@@ -10,10 +10,6 @@ Kaltura platform required changes:
 - Please note that push-server needs version Lynx-12.11.0 at least for it to run. So if you are behind please update you Kaltura installation before continuing to any of the next steps.
 - update local.ini file and set the push_server_host value to point to your push server hostname.
 - make sure local.ini file and push-server's config.ini file contain the same configuration for both RabbitMQ and tokens (see below).
-
-Repo:
-=======================
-https://github.com/kaltura/pub-sub-server
 
 Install:
 =======================
