@@ -9,7 +9,7 @@
 # description: Kaltura push-server
 
 ### BEGIN INIT INFO
-# Provides:          kaltura_push-server
+# Provides:          kaltura_push_server
 # Required-Start:    $local_fs $remote_fs $network
 # Required-Stop:     $local_fs $remote_fs $network
 # Default-Start:     2 3 4 5
@@ -22,16 +22,17 @@ NAME="Kaltura Push Server"
 PUB_SUB_PATH="@PUB_SUB_PREFIX@"
 LOG_PATH="@LOG_DIR@"
 NODE_PATH=$PUB_SUB_PATH"/node_modules"
-APPLICATION_PATH=`realpath $PUB_SUB_PATH"/main.js"`
+APPLICATION_PATH=`readlink -e $PUB_SUB_PATH"/main.js"`
 PIDFILE=$PUB_SUB_PATH"/config/push-server.pid"
 LOGFILE=$LOG_PATH"/push-server.log"
 MIN_UPTIME="5000"
 SPIN_SLEEP_TIME="2000"
  
 PATH=$NODE_BIN_DIR:$PATH
-export NODE_PATH=$NODE_PATH
- 
+
+export NODE_PATH=$NODE_PATH 
 export NODE_CONFIG_DIR=$ASYNC_PROXY_PATH"/config"
+
 if [ ! -x "`which forever 2>/dev/null`" ];then
     echo "Need to install the forever npm module. Exiting."
     exit 2
