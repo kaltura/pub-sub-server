@@ -47,36 +47,6 @@ Execution:
 =======================
 /etc/init.d/kaltura_push start
 
-Increase concurrency:
-=======================
-Change sysctl and limits.d configration to support large amount of concurrent users:
-		
-	/etc/sysctl.conf:
-
-		net.ipv4.ip_local_port_range = 2000 65535
-		net.core.somaxconn = 1000000
-		net.core.netdev_max_backlog = 65536
-		net.core.optmem_max = 25165824
-		net.ipv4.tcp_mem = 65536 131072 262144
-		net.ipv4.udp_mem = 65536 131072 262144
-		net.ipv4.tcp_rmem = 8192 87380 16777216
-		net.ipv4.udp_rmem_min = 16384
-		net.ipv4.tcp_wmem = 8192 65536 16777216
-		net.ipv4.udp_wmem_min = 16384
-		net.ipv4.tcp_max_tw_buckets = 1440000
-		net.ipv4.tcp_tw_recycle = 1
-		net.ipv4.tcp_tw_reuse = 1
-		fs.file-max = 2097152
-		fs.nr_open = 1000000
-		net.netfilter.nf_conntrack_max = 1048576
-		net.nf_conntrack_max = 1048576
-		
-	/etc/security/limits.d/custom.conf:
-		
-		root soft nofile 1000000
-		root hard nofile 1000000
-		* soft nofile 1000000
-		* hard nofile 1000000
 Upgrade:
 =======================
 - run /etc/init.d/kaltura_upgrade_push_server @RELEASE_ID@
@@ -107,9 +77,11 @@ Setup:
 
 3. Create rabbitMQ admin user
 
-		- rabbitmqctl add_user @USER_NAME@ @PASSWORD@
-		- rabbitmqctl set_user_tags @USER_NAME@ administrator
-		- rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
+```
+# rabbitmqctl add_user @USER_NAME@ @PASSWORD@
+# rabbitmqctl set_user_tags @USER_NAME@ administrator
+# rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
+```
 		
 4. Add new policy (If running in cluster mode please follow cluster setup instruction before continuing):
 
@@ -119,7 +91,7 @@ Setup:
 		Definition: Ha-mode: all
 		ha-sync-mode: automatic
 		
-5. 	Create new exchange:
+5. Create new exchange:
 
 		Exchanges tab -> add a new exchange
 		Name: kaltura_exchange
@@ -139,12 +111,14 @@ Setup:
 Cluster Setup:
 =======================
 1. Configure same cookie on all rabbit machines: /var/lib/rabbitmq/.erlang.cookie
-2. /etc/hosts – make sure each rabbitMachine can get to full and short name of other rabbit Machines in cluster.
-3. On one rabbitMachine 
+2. /etc/hosts - make sure each rabbitMachine can get to full and short name of other rabbit Machines in cluster.
+3. On each rabbitMachine: 
 
-		rabbitmqctl -n rabbit stop_app
-		rabbitmqctl -n rabbit join_cluster rabbit@otherRabbitHostName
-		rabbitmqctl -n rabbit start_app
-		
+```
+# rabbitmqctl -n rabbit stop_app
+# rabbitmqctl -n rabbit join_cluster rabbit@otherRabbitHostName
+# rabbitmqctl -n rabbit start_app
+```		
+
 4. rabbitmqctl cluster_status – to verify that cluster is correctly connected.
-5. If runign dual DC use federation to sync clusters between DC's: https://www.rabbitmq.com/federation.html
+5. When running multiple datacenters, use the [Federation plugin](https://www.rabbitmq.com/federation.html) to sync clusters between DC's.
