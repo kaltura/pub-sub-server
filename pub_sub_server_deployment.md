@@ -51,8 +51,7 @@ Increase concurrency:
 =======================
 Change sysctl and limits.d configration to support large amount of concurrent users:
 		
-	/etc/sysctl.conf:		net.ipv4.ip_local_port_range = 2000 65535
-		net.core.somaxconn = 1000000
+	/etc/sysctl.conf:		net.ipv4.ip_local_port_range = 2000 65535		net.core.somaxconn = 1000000
 		net.core.netdev_max_backlog = 65536
 		net.core.optmem_max = 25165824
 		net.ipv4.tcp_mem = 65536 131072 262144
