@@ -106,7 +106,9 @@ Setup:
 		- 1883, 8883 (if MQTT is enabled)
 3. Create rabbitMQ admin user
 
-		- rabbitmqctl add_user @USER_NAME@ @PASSWORD@		- rabbitmqctl set_user_tags @USER_NAME@ administrator		- rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
+		- rabbitmqctl add_user @USER_NAME@ @PASSWORD@
+		- rabbitmqctl set_user_tags @USER_NAME@ administrator
+		- rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
 
 4. Add new policy (If running in cluster mode please follow cluster setup instruction before continuing):
 
