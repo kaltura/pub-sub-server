@@ -129,7 +129,8 @@ Setup:
 		Durability: Dirable
 		Node: choose one of the existing in the cluster
 		Auto delete: No
-		Arguments: x-message-ttl = 86400000 (24 hours)		
+		Arguments: x-message-ttl = 86400000 (24 hours)
+		
 Cluster Setup:
 =======================
 1. Configure same cookie on all rabbit machines: /var/lib/rabbitmq/.erlang.cookie
