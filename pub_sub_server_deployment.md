@@ -21,7 +21,6 @@ Install:
 - npm install
 - ln -s /opt/kaltura/pub-sub-server/master /opt/kaltura/pub-sub-server/latest
 - ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
-- ln -s /opt/kaltura/pub-sub-server/latest/bin/upgrade-push-server.sh /etc/init.d/kaltura_upgrade_push_server
 
 Configure:
 =======================
@@ -49,8 +48,8 @@ Execution:
 
 Upgrade:
 =======================
-- run /etc/init.d/kaltura_upgrade_push_server @RELEASE_ID@
-- Example to upgrade to 1.0 you need to execute: /etc/init.d/kaltura_upgrade_push_server 1.0
+- run @PUB_SUB_SERVER_ROOT_DIR@bin/upgrade-push-server.sh @RELEASE_ID@
+- Example to upgrade to 1.0 you need to execute: @PUB_SUB_SERVER_ROOT_DIR@/kaltura_upgrade_push_server 1.0
 - The upgrade will sync all the configuration files and will restart the service.
 - Make sure that tokens in bin/push-server.sh file (PUB_SUB_PATH and LOG_PATH) are pointing to the correct paths
 
@@ -77,12 +76,12 @@ Setup:
 
 3. Create rabbitMQ admin user
 
-```
-# rabbitmqctl add_user @USER_NAME@ @PASSWORD@
-# rabbitmqctl set_user_tags @USER_NAME@ administrator
-# rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
-```
-		
+	```
+	# rabbitmqctl add_user @USER_NAME@ @PASSWORD@
+	# rabbitmqctl set_user_tags @USER_NAME@ administrator
+	# rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
+	```
+	
 4. Add new policy (If running in cluster mode please follow cluster setup instruction before continuing):
 
 		Go to rabbitmq Admin tab -> Policies tab -> add new policy
