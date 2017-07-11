@@ -61,7 +61,6 @@ Install:
 1. erlang: 19 (for reference view https://www.rabbitmq.com/which-erlang.html).
 2. rabbitMQ: 3.6.6 (for reference view https://www.rabbitmq.com/install-debian.html).
 
-
 Setup:
 =======================
 1. Enable rabbitmq plugins: rabbitmq-plugins enable rabbitmq_management 
