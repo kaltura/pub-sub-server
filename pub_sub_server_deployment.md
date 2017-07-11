@@ -48,7 +48,7 @@ Execution:
 
 Upgrade:
 =======================
-- run @PUB_SUB_SERVER_ROOT_DIR@bin/upgrade-push-server.sh @RELEASE_ID@
+- run @PUB_SUB_SERVER_ROOT_DIR@/bin/upgrade-push-server.sh @RELEASE_ID@
 - Example to upgrade to 1.0 you need to execute: @PUB_SUB_SERVER_ROOT_DIR@/kaltura_upgrade_push_server 1.0
 - The upgrade will sync all the configuration files and will restart the service.
 - Make sure that tokens in bin/push-server.sh file (PUB_SUB_PATH and LOG_PATH) are pointing to the correct paths
