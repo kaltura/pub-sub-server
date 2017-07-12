@@ -26,7 +26,7 @@ Install:
 
 		@PUB_SUB_PREFIX@ - The application root dir (e.g. /opt/kaltura/pub-sub-server/latest/)
 		@LOG_DIR@ - Your logs directory from previous step (e.g. /opt/kaltura/log)
-		
+- chmod +x /opt/kaltura/pub-sub-server/latest/bin/push-server.sh
 - ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push
 
 Configure:
