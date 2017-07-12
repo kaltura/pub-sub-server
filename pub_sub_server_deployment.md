@@ -20,6 +20,7 @@ Install:
 - Clone https://github.com/kaltura/pub-sub-server to /opt/kaltura/pub-sub-server/master
 - Navigate to /opt/kaltura/pub-sub-server/master
 - npm install
+- npm install -g forever
 - ln -s /opt/kaltura/pub-sub-server/master /opt/kaltura/pub-sub-server/latest
 - cp -p /opt/kaltura/pub-sub-server/latest/bin/push-server.template.sh /opt/kaltura/pub-sub-server/latest/bin/push-server.sh
 - Replace the following tokens in push-server.sh:
