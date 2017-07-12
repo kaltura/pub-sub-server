@@ -2,6 +2,10 @@
 	"name": "kaltura-push-server",
 	"description" : "Kaltura Push server",
 	"version": "v1.0.3",
+	"repository": {
+	    "type": "git",
+	    "url": "git+https://github.com/kaltura/pub-sub-server.git"
+	 },
 	"engines" : { "node" : ">=6.10.2" },
 	"license": "AGPL-3.0",
 	"dependencies": {
