@@ -71,25 +71,31 @@ Install:
 
 Setup:
 =======================
-1. Enable rabbitmq plugins: rabbitmq-plugins enable rabbitmq_management 
-2. Open all relevant ports: http://www.rabbitmq.com/install-debian.html
+- Enable rabbitmq plugins: rabbitmq-plugins enable rabbitmq_management 
+- Open all relevant ports: http://www.rabbitmq.com/install-debian.html
 		
-		- 4369 (epmd)
-		- 5672, 5671 (AMQP 0-9-1 and 1.0 without and with TLS)
-		- 25672. This port used by Erlang distribution for inter-node and CLI tools communication and is allocated from a dynamic range (limited to a single port by default, computed as AMQP port + 20000). See networking guide for details.
-		- 15672 (if management plugin is enabled)
-		- 61613, 61614 (if STOMP is enabled)
-		- 1883, 8883 (if MQTT is enabled)
+- 4369 (epmd)
+- 5672, 5671 (AMQP 0-9-1 and 1.0 without and with TLS)
+- 25672. This port used by Erlang distribution for inter-node and CLI tools communication and is allocated from a dynamic range (limited to a single port by default, computed as AMQP port + 20000). See networking guide for details.
+- 15672 (if management plugin is enabled)
+- 61613, 61614 (if STOMP is enabled)
+- 1883, 8883 (if MQTT is enabled)
 
-3. Create rabbitMQ admin user
+Auto configuration:
+===================
+Run ./bin/configure-rabbitmq.sh
 
-	```
-	# rabbitmqctl add_user @USER_NAME@ @PASSWORD@
-	# rabbitmqctl set_user_tags @USER_NAME@ administrator
-	# rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
-	```
+Manual configuration via the Admin I/F:
+======================================= 
+- Create rabbitMQ admin user
+
+```
+# rabbitmqctl add_user @USER_NAME@ @PASSWORD@
+# rabbitmqctl set_user_tags @USER_NAME@ administrator
+# rabbitmqctl set_permissions -p / @USER_NAME@ ".*" ".*" ".*"
+```
 	
-4. Add new policy (If running in cluster mode please follow cluster setup instruction before continuing):
+- Add new policy (If running in cluster mode please follow cluster setup instruction before continuing):
 
 		Go to rabbitmq Admin tab -> Policies tab -> add new policy
 		Name: ha-all
@@ -97,7 +103,7 @@ Setup:
 		Definition: Ha-mode: all
 		ha-sync-mode: automatic
 		
-5. Create new exchange:
+- Create new exchange:
 
 		Exchanges tab -> add a new exchange
 		Name: kaltura_exchange
@@ -106,7 +112,7 @@ Setup:
 		auto delete: No
 		internal: No
 		
-6. Create queues:
+- Create queues:
 
 		Name: queue name according to each push-server configuration
 		Durability: Dirable
