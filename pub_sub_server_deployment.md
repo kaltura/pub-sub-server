@@ -73,17 +73,16 @@ Setup:
 =======================
 - Enable rabbitmq plugins: rabbitmq-plugins enable rabbitmq_management 
 - Open all relevant ports: http://www.rabbitmq.com/install-debian.html
-		
-- 4369 (epmd)
-- 5672, 5671 (AMQP 0-9-1 and 1.0 without and with TLS)
-- 25672. This port used by Erlang distribution for inter-node and CLI tools communication and is allocated from a dynamic range (limited to a single port by default, computed as AMQP port + 20000). See networking guide for details.
-- 15672 (if management plugin is enabled)
-- 61613, 61614 (if STOMP is enabled)
-- 1883, 8883 (if MQTT is enabled)
+    - 4369 (epmd)
+    - 5672, 5671 (AMQP 0-9-1 and 1.0 without and with TLS)
+    - 25672 [this port used by Erlang distribution for inter-node and CLI tools communication and is allocated from a dynamic range (limited to a single port by default, computed as AMQP port + 20000). See networking guide for details]
+    - 15672 (if management plugin is enabled)
+    - 61613, 61614 (if STOMP is enabled)
+    - 1883, 8883 (if MQTT is enabled)
 
 Auto configuration:
 ===================
-Run ./bin/configure-rabbitmq.sh
+Run [./bin/configure-rabbitmq.sh](bin/configure-rabbitmq.sh)
 
 Manual configuration via the Admin I/F:
 ======================================= 
