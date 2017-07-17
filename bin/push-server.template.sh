@@ -30,7 +30,7 @@ SPIN_SLEEP_TIME="2000"
  
 PATH=$NODE_BIN_DIR:$PATH
 export NODE_PATH=$NODE_PATH 
-export NODE_CONFIG_DIR=$ASYNC_PROXY_PATH"/config"
+export NODE_CONFIG_DIR=$PUB_SUB_PATH"/config"
 
 if [ ! -x "`which forever 2>/dev/null`" ];then
     echo "Need to install the forever npm module. Exiting."
