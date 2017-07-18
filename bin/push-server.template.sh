@@ -21,7 +21,7 @@
 NAME="Kaltura Push Server"
 PUB_SUB_PATH="@PUB_SUB_PREFIX@"
 LOG_PATH="@LOG_DIR@"
-NODE_PATH=$PUB_SUB_PATH"/node_modules"
+NODE_PATH="@NODE_MODULES_PATH@/node_modules"
 APPLICATION_PATH=`readlink -e $PUB_SUB_PATH"/main.js"`
 PIDFILE=$PUB_SUB_PATH"/config/push-server.pid"
 LOGFILE=$LOG_PATH"/push-server.log"
