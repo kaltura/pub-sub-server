@@ -21,8 +21,11 @@
 - ```# ln -s /opt/kaltura/pub-sub-server/master /opt/kaltura/pub-sub-server/latest```
 - ```# cp -p /opt/kaltura/pub-sub-server/latest/bin/push-server.template.sh /opt/kaltura/pub-sub-server/latest/bin/push-server.sh```
 - Replace the following tokens in push-server.sh:
-    @PUB_SUB_PREFIX@ - The application root dir (e.g. /opt/kaltura/pub-sub-server/latest/)
-    @LOG_DIR@ - Your logs directory from previous step (e.g. /opt/kaltura/log)
+    
+	- @PUB_SUB_PREFIX@ - The application root dir (e.g. /opt/kaltura/pub-sub-server/latest/)
+	- @LOG_DIR@ - Your logs directory from previous step (e.g. /opt/kaltura/log)
+	- @NODE_MODULES_PATH@ - The path to the node_moduls directory which includes the packages required by the application (e.g. /opt/kaltura/pub-sub-server/latest/node_modules).
+	
 - ```# chmod +x /opt/kaltura/pub-sub-server/latest/bin/push-server.sh```
 - ```# ln -s /opt/kaltura/pub-sub-server/latest/bin/push-server.sh /etc/init.d/kaltura_push```
 - Create a log directory, e.g. mkdir /opt/kaltura/log/pub-sub-server
