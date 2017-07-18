@@ -21,7 +21,7 @@
 NAME="Kaltura Push Server"
 PUB_SUB_PATH="@PUB_SUB_PREFIX@"
 LOG_PATH="@LOG_DIR@"
-NODE_PATH="@NODE_MODULES_PATH@/node_modules"
+NODE_PATH="@NODE_MODULES_PATH@"
 APPLICATION_PATH=`readlink -e $PUB_SUB_PATH"/main.js"`
 PIDFILE=$PUB_SUB_PATH"/config/push-server.pid"
 LOGFILE=$LOG_PATH"/push-server.log"
@@ -29,7 +29,7 @@ MIN_UPTIME="5000"
 SPIN_SLEEP_TIME="2000"
  
 PATH=$NODE_BIN_DIR:$PATH
-export NODE_PATH=$NODE_PATH 
+export NODE_PATH
 export NODE_CONFIG_DIR=$PUB_SUB_PATH"/config"
 
 if [ ! -x "`which forever 2>/dev/null`" ];then
