@@ -22,12 +22,14 @@ NORMAL="\033[m"
 set -e
 service rabbitmq-server start
 /usr/lib/rabbitmq/bin/rabbitmq-plugins enable rabbitmq_management
-wget  http://localhost:15672/cli/rabbitmqadmin -O /usr/local/bin/rabbitmqadmin
+wget -q http://localhost:15672/cli/rabbitmqadmin -O /usr/local/bin/rabbitmqadmin
 chmod +x /usr/local/bin/rabbitmqadmin
-echo -e "${CYAN}mRabbitMQ Admin username:${NORMAL}"
-read -e RABBIT_USER
-echo -e "${CYAN}mRabbitMQ Admin passwd:${NORMAL}"
-read -s RABBIT_PASSWD
+if [ -z "$RABBIT_USER" -o -z "$RABBIT_PASSWD" ];then
+    echo -e "${CYAN}mRabbitMQ Admin username:${NORMAL}"
+    read -e RABBIT_USER
+    echo -e "${CYAN}mRabbitMQ Admin passwd:${NORMAL}"
+    read -s RABBIT_PASSWD
+fi
 rabbitmqctl add_user $RABBIT_USER "$RABBIT_PASSWD"
 rabbitmqctl set_user_tags $RABBIT_USER administrator
 rabbitmqctl set_permissions -p / rabbit ".*" ".*" ".*"
