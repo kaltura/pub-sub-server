@@ -6,6 +6,7 @@
 - Node 6.2.0 or above: installation reference: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
 - Node Packaged Modules (npm) 1.4.3 or above
 - NVM version 0.30.1 or above
+- Make sure the API machine pushing the messges to rabbitMQ server has mbstring installed.
 
 ## Kaltura Server configuration
 - Please note that push-server needs version Lynx-12.11.0 at least for it to run. So if you are behind please update you Kaltura installation before continuing to any of the next steps.
