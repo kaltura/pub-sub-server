@@ -46,3 +46,4 @@ fi
 set -e
 rabbitmqadmin declare exchange name=kaltura_exchange type=fanout durable=true
 rabbitmqadmin declare queue name=`hostname` durable=true 'arguments={"x-message-ttl":86400000}'
+rabbitmqadmin declare binding source="kaltura_exchange" destination_type="queue" destination=`hostname` routing_key=""
