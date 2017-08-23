@@ -108,6 +108,13 @@ Run [./bin/configure-rabbitmq.sh](bin/configure-rabbitmq.sh)
 		Auto delete: No
 		Arguments: x-message-ttl = 86400000 (24 hours)
 		
+- Create bindings:
+
+		Under the excahneg configuation add new binings for the queses previosuly created:
+		To queue: @QUEUE_NQAME@
+		Routing key: leave empty
+		Arguments: leave empty
+		
 ### Cluster Setup:
 1. Configure same cookie on all rabbit machines: /var/lib/rabbitmq/.erlang.cookie
 2. /etc/hosts - make sure each rabbitMachine can get to full and short name of other rabbit Machines in cluster.
