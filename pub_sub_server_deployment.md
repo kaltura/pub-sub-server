@@ -108,7 +108,7 @@ Run [./bin/configure-rabbitmq.sh](bin/configure-rabbitmq.sh)
 		Auto delete: No
 		Arguments: x-message-ttl = 86400000 (24 hours)
 		
-- Create bindings:
+- Create exchange bindings:
 
 		Under the excahneg configuation add new binings for the queses previosuly created:
 		To queue: @QUEUE_NQAME@
