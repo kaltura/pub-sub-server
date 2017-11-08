@@ -6,7 +6,7 @@ logName = kaltura_push.log
 errorLogName = kaltura_push_error.log
 
 [server]
-version = v1.0.4
+version = v1.0.8
 
 [queue]
 ; Comma-separated list of queue managers
@@ -16,10 +16,10 @@ queueName = @QUEUE_NAME@
 [rabbit]
 ;providerType value is the exact class name
 providerType = RabbitMQProvider
-;server = @RABBIT_MQ_SERVER@
-;port = 5672
-;exchange = @EXCHANGE@
-;curl_port = 15672
+server = @RABBIT_MQ_SERVER@
+port = 5672
+exchange = @EXCHANGE@
+curl_port = 15672
 username = @RABBIT_MQ_USERNAME@
 password = @RABBIT_MQ_PASSWORD@
 
