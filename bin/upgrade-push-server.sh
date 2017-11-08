@@ -10,7 +10,7 @@ echo updating pub-sub-server to version $1
 ##### Check if requested version was already pulled to the machine #####
 if [ ! -d "$1" ] ; then
     ##### Check if initial setup was already made following the deployment instructions #####
-    if [ ! -L "$latest" ] ; then
+    if [ -L "latest" ] ; then
         ##### Download the requested version release from git ##### 
         echo Try to download  https://github.com/kaltura/pub-sub-server/archive/$1.tar.gz
         wget https://github.com/kaltura/pub-sub-server/archive/$1.tar.gz
@@ -18,7 +18,11 @@ if [ ! -d "$1" ] ; then
         ##### Unzip the source code #####
         echo try to unzip $1.tar.gz
         tar -xvzf $1.tar.gz
-        mv pub-sub-server-$1 $1
+        if [[ ${1:0:1} == "v" ]] ; then
+            mv pub-sub-server-${1:1} $1
+        else
+            mv pub-sub-server-$1 $1
+        fi
 
         ##### Navigate to the downloaded version dir and install project pre-requisites #####
         cd $1
