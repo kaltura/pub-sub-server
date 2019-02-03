@@ -41,3 +41,6 @@ iv = @TOKEN_IV@
 [cache]
 ;Keep messages in cache for 24H (time in seconds)
 cacheTTL = 86400
+
+[monitor]
+port = @MONITOR_PORT@
