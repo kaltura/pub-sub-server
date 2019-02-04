@@ -4,6 +4,7 @@ logDir = @LOG_DIR@
 accessLogName = kaltura_push_access.log
 logName = kaltura_push.log
 errorLogName = kaltura_push_error.log
+monitorLogName = kaltura_push_monitor.log
 
 [server]
 version = v1.1.3
