@@ -4,9 +4,10 @@ logDir = @LOG_DIR@
 accessLogName = kaltura_push_access.log
 logName = kaltura_push.log
 errorLogName = kaltura_push_error.log
+monitorLogName = kaltura_push_monitor.log
 
 [server]
-version = v1.1.3
+version = v1.1.4
 
 [queue]
 ; Comma-separated list of queue managers
@@ -41,3 +42,6 @@ iv = @TOKEN_IV@
 [cache]
 ;Keep messages in cache for 24H (time in seconds)
 cacheTTL = 86400
+
+[monitor]
+port = @MONITOR_PORT@

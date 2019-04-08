@@ -41,6 +41,7 @@
 - @TOKEN_KEY@ - The same secret value configured in local.ini file (push_server_secret)
 - @TOKEN_IV@ - The same iv value configured in local.ini file (push_server_secret_iv)
 - @QUEUE_NAME@ - unique queueName as defined in rabbitMQ
+- @MONITOR_PORT@ - Required port for extracting monitor statistics about the server (e.g., 8086)
 
 ### Replace tokens bin/push-server.sh file:
 Set PUB_SUB_PATH and LOG_PATH to the correct paths
