@@ -29,7 +29,7 @@ if [ ! -d "$VERSION" ] ; then
         ##### Navigate to the downloaded version dir and install project pre-requisites #####
         cd $VERSION
         nvm install
-        npm install
+        npm install --unsafe-perm
         cd ..
         
         ##### Copy config file from previous latest dir to the current version being installed ##### 
