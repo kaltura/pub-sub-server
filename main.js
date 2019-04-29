@@ -1,5 +1,6 @@
 var ConnectionManager = require('./lib/ConnectionManager');
 const continuationLocalStorage = require('continuation-local-storage');
+var KalturaMonitor = require('./lib/utils/KalturaMonitor');
 
 require('./lib/utils/KalturaConfig');
 require('./lib/utils/KalturaLogger');
@@ -16,6 +17,7 @@ KalturaMainProcess.prototype.start = function () {
 	KalturaLogger.log('Push-Server ' + version + ' started');
 	
 	var conn = new ConnectionManager();
+	var monitor = new KalturaMonitor();
 	process.on('SIGUSR1', function() {
                 KalturaLogger.log('Got SIGUSR1. Invoke log rotate notification.');
                 KalturaLogger.notifyLogsRotate();

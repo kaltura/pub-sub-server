@@ -1,1 +1,3 @@
 *.pid
+.idea/
+node_modules/
