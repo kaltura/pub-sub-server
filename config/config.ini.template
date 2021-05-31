@@ -28,8 +28,8 @@ password = @RABBIT_MQ_PASSWORD@
 hosts = @RABBIT_MQ_SERVER_HOSTS@
 timeout = 43200000
 connectionRetries = 20
-;heart to rabbitmq every 1H
-heartbeat = 3600
+;heartbeat to rabbitmq every 60 sec
+heartbeat = 60
 
 [socketio]
 port = @SOCKET_IO_PORT@
