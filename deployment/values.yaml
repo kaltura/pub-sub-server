@@ -7,7 +7,7 @@ App:
   namespace: push
 
   # how many pods
-  replicas: 1
+  replicas: 2
 
   # repository info
   image:
