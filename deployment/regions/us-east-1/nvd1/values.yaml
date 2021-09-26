@@ -20,3 +20,4 @@ App:
 push:
   RABBIT_MQ_SERVER: http://rabbit.nvd1.ovp.kaltura.prod:5672
   RABBIT_MQ_SERVER_HOSTS: http://rabbit.nvd1.ovp.kaltura.prod:5672
+  rabbitUrl: rabbit.nvd1.ovp.kaltura.prod

@@ -65,5 +65,5 @@ push:
   MONITOR_PORT: 8086
   confPath: /opt/kaltura/pub-sub-server/master/config
   confFile: config.ini
-  rabbitUrl: rabbit.nvp1.ovp.kaltura.prod
+  rabbitUrl: xxx
   initConf: "/opt/config/config.ini.init"
