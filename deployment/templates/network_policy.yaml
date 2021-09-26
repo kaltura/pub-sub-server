@@ -1,0 +1,20 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: {{ .Values.App.namespace }}
+  name: {{ .Values.App.name }}-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Values.App.name }}
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: front-proxy
+      - podSelector:
+          matchLabels:
+            app: {{ .Values.App.env }}-front-proxy-{{ .Values.App.clusterFlavour }}
+      ports:
+        - protocol: TCP
+          port: 80

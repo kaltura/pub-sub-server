@@ -1,2 +1,3 @@
 App:
   name: nvp1-push-blue
+  clusterFlavour: blue
