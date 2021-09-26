@@ -1,0 +1,64 @@
+App:
+  # app details
+  name: xxx
+  env: xxx
+
+  # ns to deploy
+  namespace: push
+
+  # how many pods
+  replicas: 1
+
+  # repository info
+  image:
+    repository: xxx/push
+    tag: Orion-15.1.0-0b86ab7
+  initImage:
+    repository: xxx/push-init-py
+    tag: latest
+  pullPolicy: Always
+
+  # container port
+  containerPort: 80
+
+  # pod affinity
+  affinityKey: nodeAffinity
+  affinityValue: frontend
+  podAntiAffinity: true
+
+  ## Rolling Updates ##
+  maxSurge: 25%
+  maxUnavailable: 25%
+
+  # limits
+  resources:
+    limits:
+      cpu: 2
+      memory: 6Gi
+    requests:
+      cpu: 1
+      memory: 4Gi
+
+# service publish
+services:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# push configs
+push:
+  LOG_DIR: /var/log/pub-sub-server
+  QUEUE_NAME: push_server
+  RABBIT_MQ_SERVER: xxx
+  EXCHANGE: kaltura_exchange
+  RABBIT_MQ_USERNAME: mqadmin
+  RABBIT_MQ_PASSWORD: mqadmin
+  RABBIT_MQ_SERVER_HOSTS: xxx
+  SOCKET_IO_PORT: 80
+  TOKEN_KEY: MNEJdCcksRP0jSKB
+  TOKEN_IV: w0rbwf5Y8zodrUQy
+  MONITOR_PORT: 8086
+  confPath: /opt/kaltura/pub-sub-server/master/config
+  confFile: config.ini
+  rabbitUrl: rabbit.nvp1.ovp.kaltura.prod
+  initConf: "/opt/config/config.ini.init"

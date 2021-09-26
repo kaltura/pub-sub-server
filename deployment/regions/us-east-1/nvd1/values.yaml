@@ -1,0 +1,13 @@
+App:
+  env: nvd1
+
+  # repo details
+  image:
+    repository: 515842265945.dkr.ecr.us-east-1.amazonaws.com/push
+  initImage:
+    repository: 515842265945.dkr.ecr.us-east-1.amazonaws.com/push-init-py
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://rabbit.nvd1.ovp.kaltura.prod:5672
+  RABBIT_MQ_SERVER_HOSTS: http://rabbit.nvd1.ovp.kaltura.prod:5672
