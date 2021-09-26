@@ -26,6 +26,11 @@ App:
   affinityValue: frontend
   podAntiAffinity: true
 
+  # toleration
+  toleration:
+    key: frontend
+    value: frontend
+
   ## Rolling Updates ##
   maxSurge: 25%
   maxUnavailable: 25%

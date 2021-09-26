@@ -30,6 +30,13 @@ spec:
 {{- if .Values.App.podAntiAffinity }}
 {{- include "podAntiAffinity" . | indent 8 }}
 {{- end }}
+      {{- if .Values.App.toleration }}
+      tolerations:
+        - key: "{{ .Values.App.toleration.key }}"
+          value: "{{ .Values.App.toleration.value }}"
+          operator: "Equal"
+          effect: "NoSchedule"
+      {{- end }}
       containers:
         - name: {{ .Values.App.name }}
           image: "{{ .Values.App.image.repository }}:{{ .Values.App.image.tag }}"
