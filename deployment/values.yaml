@@ -55,13 +55,8 @@ push:
   LOG_DIR: /var/log/pub-sub-server
   QUEUE_NAME: push_server
   RABBIT_MQ_SERVER: xxx
-  EXCHANGE: kaltura_exchange
-  RABBIT_MQ_USERNAME: mqadmin
-  RABBIT_MQ_PASSWORD: mqadmin
   RABBIT_MQ_SERVER_HOSTS: xxx
   SOCKET_IO_PORT: 80
-  TOKEN_KEY: MNEJdCcksRP0jSKB
-  TOKEN_IV: w0rbwf5Y8zodrUQy
   MONITOR_PORT: 8086
   confPath: /opt/kaltura/pub-sub-server/master/config
   confFile: config.ini
