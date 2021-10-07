@@ -8,13 +8,9 @@ spec:
     matchLabels:
       app: {{ .Values.App.name }}
   ingress:
-    - from:
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: front-proxy
-      - podSelector:
-          matchLabels:
-            app: {{ .Values.App.env }}-front-proxy-{{ .Values.App.clusterFlavour }}
+    - from: []
       ports:
         - protocol: TCP
           port: 80
+        - protocol: TCP
+          port: 8086
