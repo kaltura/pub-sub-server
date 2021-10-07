@@ -1,0 +1,14 @@
+App:
+  env: nvp1
+
+  # repo details
+  image:
+    repository: 583352821080.dkr.ecr.us-east-1.amazonaws.com/push
+  initImage:
+    repository: 583352821080.dkr.ecr.us-east-1.amazonaws.com/push-init-py
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://rabbit.nvp1.ovp.kaltura.prod:5672
+  RABBIT_MQ_SERVER_HOSTS: http://rabbit.nvp1.ovp.kaltura.prod:5672
+  rabbitUrl: rabbit.nvp1.ovp.kaltura.prod
