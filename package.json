@@ -14,7 +14,7 @@
 		"amqp": "^0.2.7",
 		"continuation-local-storage": "^3.2.1",
 		"os": "^0.1.1",
-		"util": "0.10.3",
+		"util": "0.12.4",
 		"crypto": "^1.0.1",
 		"node-ini": "^1.0.0",
 		"socket.io": "^2.1.1",
