@@ -1,5 +1,5 @@
 App:
-  env: nvp1
+  env: nvd1
 
   # repo details
   image:
