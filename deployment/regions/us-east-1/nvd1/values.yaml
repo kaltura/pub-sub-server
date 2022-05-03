@@ -6,6 +6,13 @@ App:
     repository: 515842265945.dkr.ecr.us-east-1.amazonaws.com/push
   initImage:
     repository: 515842265945.dkr.ecr.us-east-1.amazonaws.com/push-init-py
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 0.5
+      memory: 1Gi
 
 # push configs
 push:
