@@ -14,6 +14,10 @@ App:
       cpu: 0.5
       memory: 1Gi
 
+  # annotations
+  annotations:
+    vector.dev/s3: 'true'
+
 # push configs
 push:
   RABBIT_MQ_SERVER: http://rabbit.nvd1.ovp.kaltura.prod:5672

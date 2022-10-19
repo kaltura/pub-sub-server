@@ -20,6 +20,11 @@ spec:
         prometheus.io/path: /monitoring
         prometheus.io/scrape: "true"
         prometheus.io/port: "{{ .Values.push.MONITOR_PORT }}"
+        {{- if .Values.App.annotations }}
+        {{- with .Values.App.annotations }}
+        {{- tpl (toYaml .) $ | nindent 8 }}
+        {{- end }}
+        {{- end }}
       labels:
         app: {{ .Values.App.name }}
     spec:
