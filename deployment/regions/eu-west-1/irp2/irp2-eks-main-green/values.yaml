@@ -1,4 +1,4 @@
 App:
-  name: "{{ .Values.global.envName }}-push-green"
+  name: "irp2-push-green"
   clusterFlavour: green
   replicas: 2
