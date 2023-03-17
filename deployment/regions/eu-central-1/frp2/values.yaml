@@ -1,0 +1,24 @@
+global:
+  accountId: "082111255551"
+  region: "eu-central-1"
+  envName: "frp2"
+  domainExtKaltura: "frp2.ovp.kaltura.com"
+
+App:
+  env: frp2
+
+  # repo details
+  image:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push"
+  initImage:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push-init-py"
+
+  # annotations
+  annotations:
+    vector.dev/s3: 'true'
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://rabbit.frp2.ovp.kaltura.prod:5672
+  RABBIT_MQ_SERVER_HOSTS: http://rabbit.frp2.ovp.kaltura.prod:5672
+  rabbitUrl: rabbit.frp2.ovp.kaltura.prod

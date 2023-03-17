@@ -1,0 +1,24 @@
+global:
+  accountId: "882351240370"
+  region: "ap-southeast-1"
+  envName: "sgp2"
+  domainExtKaltura: "sgp2.ovp.kaltura.com"
+
+App:
+  env: sgp2
+
+  # repo details
+  image:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push"
+  initImage:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push-init-py"
+
+  # annotations
+  annotations:
+    vector.dev/s3: 'true'
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://rabbit.sgp2.ovp.kaltura.prod:5672
+  RABBIT_MQ_SERVER_HOSTS: http://rabbit.sgp2.ovp.kaltura.prod:5672
+  rabbitUrl: rabbit.sgp2.ovp.kaltura.prod
