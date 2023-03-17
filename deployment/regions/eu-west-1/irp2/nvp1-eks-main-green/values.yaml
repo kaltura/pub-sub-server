@@ -1,0 +1,4 @@
+App:
+  name: "{{ .Values.global.envName }}-push-green"
+  clusterFlavour: green
+  replicas: 2
