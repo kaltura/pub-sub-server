@@ -1,0 +1,24 @@
+global:
+  accountId: "137576761235"
+  region: "eu-west-1"
+  envName: "irp2"
+  domainExtKaltura: "irp2.ovp.kaltura.com"
+
+App:
+  env: irp2
+
+  # repo details
+  image:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push"
+  initImage:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push-init-py"
+
+  # annotations
+  annotations:
+    vector.dev/s3: 'true'
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://rabbit.irp2.ovp.kaltura.prod:5672
+  RABBIT_MQ_SERVER_HOSTS: http://rabbit.irp2.ovp.kaltura.prod:5672
+  rabbitUrl: rabbit.irp2.ovp.kaltura.prod

@@ -1,0 +1,4 @@
+App:
+  name: "frp2-push-blue"
+  clusterFlavour: blue
+  replicas: 2
