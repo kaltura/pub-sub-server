@@ -1,11 +1,11 @@
 global:
-  accountId: "137576761235"
-  region: "eu-west-1"
-  envName: "irp2"
-  domainExtKaltura: "irp2.ovp.kaltura.com"
+  accountId: "383697330906"
+  region: "us-east-1"
+  envName: "nvq2"
+  domainExtKaltura: "nvq2.ovp.kaltura.com"
 
 App:
-  env: irp2
+  env: nvq2
 
   # repo details
   image:
@@ -19,6 +19,6 @@ App:
 
 # push configs
 push:
-  RABBIT_MQ_SERVER: http://rabbit.irp2.ovp.kaltura.prod:5672
-  RABBIT_MQ_SERVER_HOSTS: http://rabbit.irp2.ovp.kaltura.prod:5672
-  rabbitUrl: rabbit.irp2.ovp.kaltura.prod
+  RABBIT_MQ_SERVER: http://rabbit.nvq2.ovp.kaltura.prod:5672
+  RABBIT_MQ_SERVER_HOSTS: http://rabbit.nvq2.ovp.kaltura.prod:5672
+  rabbitUrl: rabbit.nvq2.ovp.kaltura.prod
