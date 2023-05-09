@@ -1,0 +1,4 @@
+App:
+  name: "nvq2-push-blue"
+  clusterFlavour: blue
+  replicas: 2

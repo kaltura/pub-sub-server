@@ -1,0 +1,4 @@
+App:
+  name: "sgp2-push-green"
+  clusterFlavour: green
+  replicas: 2
