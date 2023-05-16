@@ -16,3 +16,9 @@ podAntiAffinity:
         app: {{ .Values.App.name }}
     topologyKey: kubernetes.io/hostname
 {{- end }}
+{{- define "renderedValues" -}}
+{{- $originalValues := .Values | toYaml }}
+{{- $newValuesYaml := tpl $originalValues . }}
+{{- $newValues := $newValuesYaml | fromYaml }}
+{{- $_ := set $ "Values" $newValues -}}
+{{- end }}
