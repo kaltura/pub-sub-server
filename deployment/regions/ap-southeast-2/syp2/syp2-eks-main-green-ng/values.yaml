@@ -1,0 +1,4 @@
+App:
+  name: "syp2-push-green"
+  clusterFlavour: green
+  replicas: 2

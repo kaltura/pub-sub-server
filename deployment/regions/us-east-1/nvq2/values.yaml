@@ -1,0 +1,23 @@
+global:
+  accountId: "383697330906"
+  region: "us-east-1"
+  envName: "nvq2"
+  domainExtKaltura: "nvq2.ovp.kaltura.com"
+
+App:
+  env: nvq2
+
+  # repo details
+  image:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push"
+  initImage:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push-init-py"
+
+  # annotations
+  annotations:
+    vector.dev/s3: 'true'
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://pc-rabbitmq-1.nvq2.ovp.kaltura.prod:5672,http://pc-rabbitmq-2.nvq2.ovp.kaltura.prod:5672,http://pc-rabbitmq-3.nvq2.ovp.kaltura.prod:5672
+  rabbitUrl: pc-rabbitmq-1.nvq2.ovp.kaltura.prod

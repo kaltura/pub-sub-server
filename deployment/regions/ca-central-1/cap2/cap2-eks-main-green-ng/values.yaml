@@ -1,0 +1,4 @@
+App:
+  name: "cap2-push-green"
+  clusterFlavour: green
+  replicas: 2
