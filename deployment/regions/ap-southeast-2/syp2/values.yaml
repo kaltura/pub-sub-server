@@ -19,6 +19,5 @@ App:
 
 # push configs
 push:
-  RABBIT_MQ_SERVER: http://rabbit.syp2.ovp.kaltura.prod:5672
-  RABBIT_MQ_SERVER_HOSTS: http://rabbit.syp2.ovp.kaltura.prod:5672
-  rabbitUrl: rabbit.syp2.ovp.kaltura.prod
+  RABBIT_MQ_SERVER: http://pc-rabbitmq-1.syp2.ovp.kaltura.prod:5672,http://pc-rabbitmq-2.syp2.ovp.kaltura.prod:5672,http://pc-rabbitmq-3.syp2.ovp.kaltura.prod:5672
+  rabbitUrl: pc-rabbitmq-1.syp2.ovp.kaltura.prod
