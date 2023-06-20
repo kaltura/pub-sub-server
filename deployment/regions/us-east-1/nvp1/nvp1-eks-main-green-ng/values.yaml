@@ -1,4 +1,4 @@
 App:
   name: nvp1-push-green-ng
   clusterFlavour: green-ng
-  replicas: 10
+  replicas: 3
