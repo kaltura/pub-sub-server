@@ -1,4 +1,4 @@
 App:
   name: "irp2-push-blue"
   clusterFlavour: blue
-  replicas: 2
+  replicas: 1
