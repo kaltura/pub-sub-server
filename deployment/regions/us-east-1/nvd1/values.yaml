@@ -1,11 +1,17 @@
+global:
+  accountId: "515842265945"
+  region: "us-east-1"
+  envName: "nvd1"
+  domainExtKaltura: "nvd1.ovp.kaltura.com"
+
 App:
   env: nvd1
 
   # repo details
   image:
-    repository: 515842265945.dkr.ecr.us-east-1.amazonaws.com/push
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push"
   initImage:
-    repository: 515842265945.dkr.ecr.us-east-1.amazonaws.com/push-init-py
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push-init-py"
   resources:
     limits:
       cpu: 1
