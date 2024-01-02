@@ -1,4 +1,4 @@
 App:
-  name: nvd1-push-green
+  name: "nvd1-push-green"
   clusterFlavour: green
   replicas: 1
