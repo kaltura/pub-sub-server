@@ -2,10 +2,11 @@ global:
   accountId: "515842265945"
   region: "us-east-1"
   envName: "nvd1"
-  domainExtKaltura: "nvd1.ovp.kaltura.com"
+  domainExtKaltura: "{{ .Values.global.envName }}.ovp.kaltura.com"
 
 App:
   env: nvd1
+  name: "{{ .Values.global.envName }}-push-{{ .Values.global.clusterFlavour }}"
 
   # repo details
   image:
@@ -26,6 +27,6 @@ App:
 
 # push configs
 push:
-  RABBIT_MQ_SERVER: http://rabbit.nvd1.ovp.kaltura.prod:5672
-  RABBIT_MQ_SERVER_HOSTS: http://rabbit.nvd1.ovp.kaltura.prod:5672
-  rabbitUrl: rabbit.nvd1.ovp.kaltura.prod
+  RABBIT_MQ_SERVER: "http://rabbit.{{ .Values.global.envName }}.ovp.kaltura.prod:5672"
+  RABBIT_MQ_SERVER_HOSTS: "http://rabbit.{{ .Values.global.envName }}.ovp.kaltura.prod:5672"
+  rabbitUrl: "rabbit.{{ .Values.global.envName }}.ovp.kaltura.prod"
