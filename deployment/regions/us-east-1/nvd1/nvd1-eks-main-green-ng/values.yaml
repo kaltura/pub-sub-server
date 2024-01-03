@@ -1,4 +1,4 @@
+global:
+  clusterFlavour: green-ng
 App:
-  name: "nvd1-push-green"
-  clusterFlavour: green
   replicas: 1
