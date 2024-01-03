@@ -30,3 +30,4 @@ push:
   RABBIT_MQ_SERVER: "http://rabbit.{{ .Values.global.envName }}.ovp.kaltura.prod:5672"
   RABBIT_MQ_SERVER_HOSTS: "http://rabbit.{{ .Values.global.envName }}.ovp.kaltura.prod:5672"
   rabbitUrl: "rabbit.{{ .Values.global.envName }}.ovp.kaltura.prod"
+  

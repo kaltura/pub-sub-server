@@ -2,3 +2,4 @@ global:
   clusterFlavour: blue-ng
 App:
   replicas: 1
+  
