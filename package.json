@@ -1,7 +1,7 @@
 {
 	"name": "kaltura-push-server",
 	"description": "Kaltura Push server",
-	"version": "v1.1.4",
+	"version": "v1.2.0",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kaltura/pub-sub-server.git"
