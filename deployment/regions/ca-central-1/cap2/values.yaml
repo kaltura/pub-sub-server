@@ -1,0 +1,23 @@
+global:
+  accountId: "948632009361"
+  region: "ca-central-1"
+  envName: "cap2"
+  domainExtKaltura: "cap2.ovp.kaltura.com"
+
+App:
+  env: cap2
+
+  # repo details
+  image:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push"
+  initImage:
+    repository: "{{ .Values.global.accountId }}.dkr.ecr.{{ .Values.global.region }}.amazonaws.com/push-init-py"
+
+  # annotations
+  annotations:
+    vector.dev/s3: 'true'
+
+# push configs
+push:
+  RABBIT_MQ_SERVER: http://pc-rabbitmq-1.cap2.ovp.kaltura.prod:5672,http://pc-rabbitmq-2.cap2.ovp.kaltura.prod:5672,http://pc-rabbitmq-3.cap2.ovp.kaltura.prod:5672
+  rabbitUrl: pc-rabbitmq-1.cap2.ovp.kaltura.prod

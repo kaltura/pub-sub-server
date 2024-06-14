@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.App.name }}
+  labels:
+    app: {{ .Values.App.name }}
+  namespace: {{ .Values.App.namespace }}
+  annotations:
+spec:
+  replicas: {{ .Values.App.replicas }}
+  serviceName: {{ .Values.App.name }}
+  podManagementPolicy: "Parallel"
+  selector:
+    matchLabels:
+      app: {{ .Values.App.name }}
+  template:
+    metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configMap.yaml") . | sha256sum }}
+        prometheus.io/path: /monitoring
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "{{ .Values.push.MONITOR_PORT }}"
+        {{- if .Values.App.annotations }}
+        {{- with .Values.App.annotations }}
+        {{- tpl (toYaml .) $ | nindent 8 }}
+        {{- end }}
+        {{- end }}
+      labels:
+        app: {{ .Values.App.name }}
+    spec:
+      affinity:
+{{- if .Values.App.affinityKey }}
+{{- include "nodeAffinity" . | indent 8 }}
+{{- end }}
+{{- if .Values.App.podAntiAffinity }}
+{{- include "podAntiAffinity" . | indent 8 }}
+{{- end }}
+      {{- if .Values.App.toleration }}
+      tolerations:
+        - key: "{{ .Values.App.toleration.key }}"
+          value: "{{ .Values.App.toleration.value }}"
+          operator: "Equal"
+          effect: "NoSchedule"
+      {{- end }}
+      containers:
+        - name: {{ .Values.App.name }}
+          image: "{{ .Values.App.image.repository }}:{{ .Values.App.image.tag }}"
+          imagePullPolicy: {{ .Values.App.pullPolicy }}
+          volumeMounts:
+          - name: {{ .Values.App.name }}-config
+            mountPath: /opt/kaltura/pub-sub-server/master/config/
+          ports:
+          - name: node
+            containerPort: {{ .Values.App.containerPort }}
+            protocol: TCP
+          - name: monitor
+            containerPort: {{ .Values.push.MONITOR_PORT }}
+            protocol: TCP
+          resources:
+            limits:
+              memory: {{ .Values.App.resources.limits.memory }}
+              cpu: {{ .Values.App.resources.limits.cpu }}
+            requests:
+              cpu: {{ .Values.App.resources.requests.cpu }}
+              memory: {{ .Values.App.resources.requests.memory }}
+      initContainers:
+      - name: config-queues
+        image: "{{ .Values.App.initImage.repository }}:{{ .Values.App.initImage.tag }}"
+        env:
+          - name: env
+            value: {{ .Values.App.env }}
+          - name: rabbitExchange
+            value: {{ .Values.push.EXCHANGE }}
+          - name: confPath
+            value: {{ .Values.push.confPath }}
+          - name: confFile
+            value: {{ .Values.push.confFile }}
+          - name: RABBIT_MQ_USERNAME
+            value: {{ .Values.push.RABBIT_MQ_USERNAME }}
+          - name: RABBIT_MQ_PASSWORD
+            value: {{ .Values.push.RABBIT_MQ_PASSWORD }}
+          - name: rabbitUrl
+            value: {{ .Values.push.rabbitUrl }}
+          - name: initConf
+            value: {{ .Values.push.initConf }}
+        volumeMounts:
+        - name: {{ .Values.App.name }}-config-init
+          mountPath: /opt/config/config.ini.init
+          subPath: config.ini.init
+        - name: {{ .Values.App.name }}-config
+          mountPath: /opt/kaltura/pub-sub-server/master/config/
+      volumes:
+      - name: {{ .Values.App.name }}-config-init
+        configMap:
+          name: {{ .Values.App.name }}-config-init
+      - name: {{ .Values.App.name }}-config
+        emptyDir: {}

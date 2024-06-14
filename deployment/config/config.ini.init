@@ -1,6 +1,6 @@
 [logger]
 debugEnabled = 0
-logDir = @LOG_DIR@
+logDir = {{ .Values.push.LOG_DIR }}
 accessLogName = kaltura_push_access.log
 logName = kaltura_push.log
 errorLogName = kaltura_push_error.log
@@ -12,36 +12,32 @@ version = v1.2.1
 [queue]
 ; Comma-separated list of queue managers
 providers = rabbit
-queueName = @QUEUE_NAME@
+queueName = {{ .Values.push.QUEUE_NAME }}
 
 [rabbit]
 ;providerType value is the exact class name
 providerType = RabbitMQProvider
-server = @RABBIT_MQ_SERVER@
-port = 5672
-exchange = @EXCHANGE@
-curl_port = 15672
-username = @RABBIT_MQ_USERNAME@
-password = @RABBIT_MQ_PASSWORD@
+username = {{ .Values.push.RABBIT_MQ_USERNAME }}
+password = {{ .Values.push.RABBIT_MQ_PASSWORD }}
 
 ;host are comma separated urls (plus port) to rabbit nodes - e.g http://rabbit-dc1.com:5675
-hosts = @RABBIT_MQ_SERVER_HOSTS@
+hosts = {{ .Values.push.RABBIT_MQ_SERVER }}
 timeout = 43200000
 connectionRetries = 20
-;heart to rabbitmq every 1H
-heartbeat = 3600
+;heartbeat to rabbitmq every 60 sec
+heartbeat = 60
 
 [socketio]
-port = @SOCKET_IO_PORT@
+port = {{ .Values.push.SOCKET_IO_PORT }}
 
 [tokens]
 ;These settings should be coordinated with your local.ini file - push_server_secret, push_server_secret_iv
-key = @TOKEN_KEY@
-iv = @TOKEN_IV@
+key = {{ .Values.push.TOKEN_KEY }}
+iv = {{ .Values.push.TOKEN_IV }}
 
 [cache]
 ;Keep messages in cache for 24H (time in seconds)
 cacheTTL = 86400
 
 [monitor]
-port = @MONITOR_PORT@
+port = {{ .Values.push.MONITOR_PORT }}
