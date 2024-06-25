@@ -12,7 +12,7 @@ App:
   # repository info
   image:
     repository: xxx/push
-    tag: v1.2.1-660
+    tag: v1.2.1-661
   initImage:
     repository: xxx/push-init-py
     tag: latest
