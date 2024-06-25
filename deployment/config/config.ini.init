@@ -1,6 +1,6 @@
 [logger]
 debugEnabled = 0
-logDir = {{ .Values.push.LOG_DIR }}
+logDir = /dev/stdout
 accessLogName = kaltura_push_access.log
 logName = kaltura_push.log
 errorLogName = kaltura_push_error.log
