@@ -27,7 +27,7 @@ FROM kalturaa.jfrog.io/onprem-docker/kaltura-node:${NODE_VERSION}
 
 ARG BASE_PATH=/
 ARG PUSH_PATH=${BASE_PATH}pub-sub-server
-ARG LOG_PATH=${PUSH_PATH}/logs
+ARG LOG_PATH=/var/log/pub-sub-server
 ARG CONFIG_PATH=${PUSH_PATH}/config
 ARG CACHE_PATH=${PUSH_PATH}/cache
 ARG PUSH_USER=push
