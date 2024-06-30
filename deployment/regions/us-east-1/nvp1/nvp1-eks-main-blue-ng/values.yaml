@@ -1,4 +1,4 @@
 App:
   name: nvp1-push-blue-ng
   clusterFlavour: blue-ng
-  replicas: 1
+  replicas: 10
