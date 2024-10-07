@@ -1,4 +1,0 @@
-global:
-  clusterFlavour: green-ng
-App:
-  replicas: 1

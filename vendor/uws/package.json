@@ -10,7 +10,7 @@
         "spec": "0.14.1",
         "type": "version"
       },
-      "/opt/kaltura/pub-sub-server/v1.1.1"
+      "/opt/kaltura/pub-sub-server/v1.2.0"
     ]
   ],
   "_from": "uws@0.14.1",
@@ -44,7 +44,7 @@
   "_shasum": "89b8eb7bced272c65621472e878c57f4e0e00640",
   "_shrinkwrap": null,
   "_spec": "uws@0.14.1",
-  "_where": "/opt/kaltura/pub-sub-server/v1.1.1",
+  "_where": "/opt/kaltura/pub-sub-server/v1.2.0",
   "author": {
     "name": "Alex Hultman",
     "email": "alexhultman@gmail.com",
