@@ -1,1 +1,0 @@
-cmd_uws := LD_LIBRARY_PATH=/opt/kaltura/pub-sub-server/v1.2.0/node_modules/uws/build/Release/lib.host:/opt/kaltura/pub-sub-server/v1.2.0/node_modules/uws/build/Release/lib.target:$$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd ../.; cp "/opt/kaltura/pub-sub-server/v1.2.0/node_modules/uws/build/Release/uws.node" uws_linux_51.node
