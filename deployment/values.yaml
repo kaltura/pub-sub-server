@@ -12,7 +12,7 @@ App:
   # repository info
   image:
     repository: xxx/push
-    tag: Orion-15.1.0-0b86ab7
+    tag: v1.2.1
   initImage:
     repository: xxx/push-init-py
     tag: latest
