@@ -48,7 +48,7 @@ spec:
           imagePullPolicy: {{ .Values.App.pullPolicy }}
           volumeMounts:
           - name: {{ .Values.App.name }}-config
-            mountPath: /opt/kaltura/pub-sub-server/master/config/
+            mountPath: /pub-sub-server/config/
           ports:
           - name: node
             containerPort: {{ .Values.App.containerPort }}
@@ -88,7 +88,7 @@ spec:
           mountPath: /opt/config/config.ini.init
           subPath: config.ini.init
         - name: {{ .Values.App.name }}-config
-          mountPath: /opt/kaltura/pub-sub-server/master/config/
+          mountPath: /pub-sub-server/config/
       volumes:
       - name: {{ .Values.App.name }}-config-init
         configMap:
